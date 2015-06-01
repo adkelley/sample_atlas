@@ -175,14 +175,28 @@ app.post("/logout", function(req, res) {
 
 
 // List all the accounts for debugging
+// This is currently restricted to me "adkelley@mac.com"
+// Anyone else that tries will be logged out
 app.get("/accounts", function(req, res) {
-  db.User
-    .find({}, function(err, accounts) {
-      res.send(accounts);
-    });
+  req.currentUser(function(err, user) {
+    if (err) {
+      console.log("Error in get() /accounts");
+      res.redirect("/logout");
+    } else {
+      console.log("get()", "/accounts", user);
+      if (user.email === "adkelley@mac.com") {
+        db.User
+          .find({}, function(err, accounts) {
+            res.send(accounts);
+          });
+      } else {
+        res.redirect("/logout");
+      }
+    }
+  });
 });
 
 
 app.listen(process.env.PORT || 3000, function () {
-  console.log("Running on 3000!");
+  console.log("Running on ", process.env.PORT);
 })
