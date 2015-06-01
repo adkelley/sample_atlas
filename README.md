@@ -11,7 +11,7 @@ Music samples are represented as a particle simulation of nodes organized into a
 
 ## Installation
 Sample Atlas uses MongoDB for storing user login information.  Therefore, you should create a .env file in your sample_atlas root directory 
-and add the following lines to this file
+and add the following lines:
 ```
 SECRET=somesecret
 DEV_MONGODB='your local mongodb uri'  //Example: DEV_MONGODB='3000'
