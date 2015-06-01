@@ -7,7 +7,15 @@ Sample Atlas is a browser based app that enables the electronic musician to quic
 Music samples are represented as a particle simulation of nodes organized into a directed acyclic graph (DAG).  This type of visualization has been used in applications such as [mapping human knowledge](http://www.xdiscovery.com/en/atlas) and [mapping the context and interrelationships](http://www.clojureatlas.com) in the Clojure programming language.  To construct the Sample Atlas, we borrowed from [Level of analysis](http://en.wikipedia.org/wiki/Level_of_analysis) classification to describe the sound in several layers of refinement - Macro, Messo, Micro, & Technical.  This approach has been recommended by [Freesound.org](https://www.freesound.org/help/faq/#sounds-2) to help users create a better description of sounds they have uploaded to the web site.  Currently there are two roots in the atlas - **Type**, which represents an instrument type, and **Mode**, which represents aspects such as how the sound was recorded (e.g., dry) or how it evolves over time.  For search, navigation and listening the musician can quickly explore and ultimately expose branches until they reach a desired sample.  Once the sample is found, the musician clicks on the sample node to begin playing and possibly loop until she clicks the sample again, or clicks another node to begin exploring other parts of the graph.
 
 ## Current Status
-- [Version 0.0.1](https://floating-anchorage-3021.herokuapp.com) deployed on Heroku. (May 2015) 
+- [Version 0.0.1](https://floating-anchorage-3021.herokuapp.com) deployed on Heroku. (May 2015)
+
+## Installation
+Sample Atlas uses MongoDB for storing user login information.  Therefore, you should create a .env file in your sample_atlas root directory 
+and add the following lines to this file
+```
+SECRET=somesecret
+DEV_MONGODB='your local mongodb uri'  //Example: DEV_MONGODB='3000'
+```
 
 ## Future Work
 - Allow the graph to provide visual cues for each layer.  For example, the Macro and Micro layers might include avatars of the sampled instrument.
